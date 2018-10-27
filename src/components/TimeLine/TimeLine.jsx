@@ -108,7 +108,7 @@ var keys = {
             groups={groups}
             items={items}
             keys={keys}
-            sidebarContent={<div className="content center">Projetos</div>}
+            sidebarContent={<div className="content">Projetos</div>}
             itemsSorted
             itemTouchSendsClick={false}
             stackItems
