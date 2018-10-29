@@ -1,3 +1,10 @@
 .ajust-text *{
     font-size: 30px;
+    margin-bottom: 0%;
+    margin-left: 10px;
+}
+
+.txt-concluido {
+    text-decoration: line-through;
+
 }

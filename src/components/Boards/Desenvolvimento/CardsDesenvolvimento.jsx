@@ -1,69 +1,72 @@
+
+// boardDesenvolvimento:'5bd310b21216fe78f29812d4',
+// boardProjeto: '5bd1cc1cd43ab84a005dfa25',
+// boardTimeDesing: '5bd0aeded2fed00f87693a02'
+
 import React, { Component } from 'react'
 import api from '../../../service/api'
 import Card from '../../Card/Card'
-import { Grid, Row, Col, PageHeader, Badge } from "react-bootstrap"
-import './style.css'
+import { Grid, Row, Col, PageHeader } from "react-bootstrap"
+import '../Marketing/style.css'
 
-const boardMarketing = '5bd088d33995822fc367bc9d'
 
+
+
+const boardDesenvolvimento = '5bd310b21216fe78f29812d4'
    
 
 
-export class CardsMarketing extends Component {
+export class CardsDesenvolvimento extends Component {
     state = {
-        cards: [],
-        idMembro:{yvess:'51d4b759264169314e000c78', gean: '1321321'}
-        
+        cards: []
          
     }
 
     componentDidMount(){
-        this.loadMarketign();
+        this.load();
         
     } 
 
-    loadMarketign = async () => {
-        const card = await api.get(`/boards/${boardMarketing}/cards` ,{
+    load = async () => {
+        const card = await api.get(`/boards/${boardDesenvolvimento}/cards` ,{
             params: {
                 key:'675c4bc27d36b1bff30c1889b1305787',
                 token: '4f32f44c9664bb0a13f6e073c5d13176e5bddc8a704947d0018bb664c00b156e'
             }
         })
       this.setState({ cards: card.data})
-      console.log(this.state.idMembro.yvess)
     }
-    
+
     render(){    
-        
-             
-   
+        const cards = this.state.cards
+       
+      
        return (
            <div className= "content">
            <Grid fluid>
                <Row>
               <PageHeader header="Heading" className= "ajust-text">
-                  Marketing
+                  Desenvolvimento
               </PageHeader>               
                    <Col md={4}>
                        <Card
                        title= "Atividades"
-                       category="Todas as atividades do Marketing"
+                       category="Todas as atividades desenvolvimento"
                        stats="Updated 3 minutes ago"
                        statsIcon="fa fa-history"
                        content = {
                            <div className="table-full-width table-responsive content">
                            <ul>
-                               {this.state.cards.map(conteudo => {
-                                   if(conteudo.idList === "5bd08933468e900894f7c225"){
+                               {cards.map(conteudo => {
+                                   if(conteudo.idList === "5bd311f09831671b0e8fc211"){
                                        return (
-                                       
-                                        <li key={conteudo.id}>{conteudo.name}{conteudo.idMembers}</li>
-                                                                                                                 
                                         
-                                                                                                                    
-                                   
+                                        <li key={conteudo.id}>{conteudo.name}</li>
+                                        
                                        )
-                                   }
+                                   }else{
+                                          return null
+                                      }
                                })}
                                </ul>
                            </div>
@@ -80,8 +83,8 @@ export class CardsMarketing extends Component {
                        content = {
                            <div className="table-full-width table-responsive content">
                            <ul>
-                               {this.state.cards.map(conteudo => {
-                                   if(conteudo.idList === "5bd0893a0a026f43ffcdeefa"){
+                               {cards.map(conteudo => {
+                                   if(conteudo.idList === "5bd311f222ee5582bf732bc5"){
                                        return (
                                         
                                         <li key={conteudo.id}>{conteudo.name}</li>
@@ -105,12 +108,12 @@ export class CardsMarketing extends Component {
                        content = {
                            <div className="table-full-width  table-responsive content">
                            <ul>
-                               {this.state.cards.map(conteudo => {
-                                   if(conteudo.idList === "5bd1f819fee38d80cff71cb4"){
+                               {cards.map(conteudo => {
+                                   if(conteudo.idList === "5bd311f446ce0260e4dd6556"){
                                        return (
                                         
                                         <li key={conteudo.id}>{conteudo.name}</li>
-                                       
+                                        
                                        )
                                    }else{
                                           return null
@@ -129,8 +132,8 @@ export class CardsMarketing extends Component {
                        content = {
                            <div className="table-full-width table-responsive content">
                            <ul>
-                               {this.state.cards.map(conteudo => {
-                                   if(conteudo.idList === "5bd0893dc5182a55345c8df3"){
+                               {cards.map(conteudo => {
+                                   if(conteudo.idList === "5bd311f577a5e58b3f5f3dda"){
                                        return (
                                         
                                         <li className="txt-concluido" key={conteudo.id}>{conteudo.name}</li>
@@ -145,22 +148,16 @@ export class CardsMarketing extends Component {
                             }             
                         />                   
                    </Col>
-                        
+                   
                </Row>
-               
            </Grid>
-                     
-          
            </div>
-     
-           )
-  
+          
+       )
+          
+            
     }
 
 }
 
-
-export default CardsMarketing
-
-
-
+export default CardsDesenvolvimento
